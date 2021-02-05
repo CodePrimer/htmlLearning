@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS字体属性</title>
+    <style>
+        /* 设置多个字体避免兼容性问题，按先后顺序加载 */
+        h2 {
+            font-family: 'Micorsoft Yahei';
+    
+            /* 标题标签的字体大小需要单独设置 
+               可以设置font-weight使标题不变粗*/
+            font-size: 16px;
+            font-weight: normal;
+        }
+    
+        p {
+            font-family: 'Times New Roman', Times, serif;
+        }
+    
+    
+        body {
+            font-size: 16px;
+        }
+    
+        .bolder {
+            font-weight: 700;
+        }
+    
+        .style {
+            font-style: normal;
+        }
+    
+    </style>
+</head>
+
+
+<body>
+    
+    <!-- 字体系列 font-family -->
+
+    <h2>越人歌</h2>
+    <p>今夕何夕兮，搴舟中流。</p>
+    <p>今日何日兮，得与王子同舟。</p>
+    <p>蒙羞被好兮，不訾诟耻。</p>
+    <p>心几烦而不绝兮，得知王子。</p>
+    <p class='bolder'>山有木兮木有枝，心悦君兮君不知。</p>
+    
+    <em class='style'>我本身是倾斜的文本 设置style属性</em>
+</body>
+</html>

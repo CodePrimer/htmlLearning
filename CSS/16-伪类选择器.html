@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        a:link {
+            color:#FF0000;
+        } /* 未访问的链接 */
+        a:visited {
+            color: rgb(113, 48, 167);
+        } /* 已访问的链接 */
+        a:hover {
+            background-color:#00FF00;
+        } /* 鼠标划过链接 */
+        a:active {
+            color:#0000FF;
+        } /* 已选中的链接 */
+        
+        /* focus伪类选择器 */
+        input:focus {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    链接伪类选择器可以给链接添加一些特殊效果<br>
+    <a href="#">我是一个链接</a> 
+    <br>
+    <br>
+    focus伪类选择器可以给表单添加特殊效果<br>
+    <input type="text" name="" id="" value="输入文本">
+</body>
+</html>

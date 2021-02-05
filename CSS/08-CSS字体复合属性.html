@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS字体复合属性</title>
+
+    <style>
+        /* 想要div文字 倾斜 加粗 字号16px 微软雅黑 */
+        div {
+            /* font-style: italic;
+            font-weight: 700;
+            font-size: 16px;
+            font-family: 'Microsoft Yahei'; */
+            
+            /* 复合语句语法
+            font: font-style font-weight font-size/line-height font-family 
+            */
+            font: italic 700 16px 'Microsoft Yahei';
+    
+            /* 必须保证font-size font-family 两个属性 */
+        }
+    
+        .div {
+            /* 对齐文本 */
+            text-align: center;
+            /* 装饰文本 */
+            text-decoration: underline;
+        }
+    
+        a {
+            /* 装饰文本 */
+            text-decoration: none;
+        }
+    
+        p {
+            /* 文本缩进 */
+            /* text-indent: 20px; */
+            text-indent: 2em;
+            /* em是相对单位，相对当前段落文字的2个单位 */
+    
+            /* 行高 */
+            line-height: 2em;
+        }
+    
+    </style>
+</head>
+
+
+<body>
+    
+    <div>三生三世十里桃花，一心一意千行代码</div>
+
+    <div class='div'>三生三世十里桃花，一心一意千行代码</div>
+
+    <p>下列超链接去除下划线</p>
+    <a href="http://www.baidu.com">百度首页</a>
+
+
+    <p>这是一行很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+        很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+        很长很长很长很长很长很长很长很长很长很长很长很长很长很长
+        很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文本</p>
+</body>
+</html>

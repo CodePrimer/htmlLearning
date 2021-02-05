@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    function copyText(){
+        document.getElementById("field2").value=document.getElementById("field1").value;
+    }
+
+    function Wopen(){
+        // window.open('https://www.baidu.com/','dhn','width=600,height=400,top=100px,left=0,menubar=no,toobar=no,status=no,scrollbars=yes');
+        /*
+        height窗口高度
+        width窗口宽度
+        top窗口距离屏幕上方的象素值
+        left窗口距离屏幕左侧的象素值
+        toolbar是否显示工具栏，yes为显示
+        menubar菜单栏
+        scrollbars滚动栏
+        location是否显示地址栏，yes为允许
+        status是否显示状态栏内的信息，yes为允许；
+        */
+    } 
+</script>
+</head>
+<body>
+
+    <p>当按钮被单击时触发函数。此函数打开一个新的网页并跳转。</p>
+    <button onclick="Wopen()">打开网页</button>
+    <button onclick="Wopen1()">打开网页1</button>
+
+    <p>当按钮被单击时触发函数。此函数把文本从 Field1 复制到 Field2 中。</p>
+    Field1: <input type="text" id="field1" value="Hello World!"><br>
+    Field2: <input type="text" id="field2"><br><br>
+    <button onclick="copyText()">复制文本</button>
+
+</body>
+</html>

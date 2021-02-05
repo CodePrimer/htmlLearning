@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简洁版小米侧边栏</title>
+    <style>
+        a {
+            /* a链接转换为块元素 */
+            display: block;
+
+            width: 150px;
+            height: 40px;
+            background-color: gray;
+            color:white;
+            font-size: 15px;
+            text-align: center;
+            text-decoration: none;
+            
+            /* 垂直居中：行高等于盒子的高度实现 */
+            /* 行高包含文字本身高度、上空隙和下空隙 */
+            line-height: 40px;
+
+        }
+
+        a:visited {
+            color:white;
+        } /* 已访问的链接 */
+        a:hover {
+            background-color:orange;
+        } /* 鼠标划过链接 */
+
+    </style>
+</head>
+<body>
+    <a href="#">手机 电话卡</a>
+    <a href="#">电视 盒子</a>
+    <a href="#">笔记本 平板</a>
+    <a href="#">出行 穿戴</a>
+    <a href="#">智能 路由器</a>
+</body>
+</html>

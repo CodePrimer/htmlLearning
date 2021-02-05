@@ -1,0 +1,42 @@
+body {
+    font-family: 'Microsoft YaHei';
+    font-size: 16px;
+    line-height: 28px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.gray {
+    color: rgb(121, 121, 121);
+    text-align: center;
+}
+
+a {
+    color: red;
+    text-decoration: none;
+}
+
+.search {
+    color: rgb(121, 121, 121);
+    width: 170px;
+}
+
+.btn {
+    font-weight: 700;
+}
+
+p {
+    text-indent: 2em;
+}
+
+.pic {
+    text-align: center;
+}
+
+.footer {
+    color: rgb(121, 121, 121);
+    font-size: small;
+    text-align: right;
+}

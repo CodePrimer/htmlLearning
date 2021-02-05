@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    注册页面
+    <form>
+        <!--text输入框设置maxlength最大输入字符长度-->
+        姓名：<input type="text" name="name" value="请输入姓名" maxlength="5"> <br />
+        <!--将name属性设置为相同实现多选一-->
+        性别：男<input type="radio" name="sex" value="男" checked="checked">女<input type="radio" name="sex" value="女"> <br />
+        密码：<input type="password" name="pwd"> <br />
+        城市：
+        <select name="city2">
+            <option>南京市</option>
+            <option>无锡市</option>
+            <option>徐州市</option>
+            <option>常州市</option>
+            <option>苏州市</option>
+        </select> <br />
+        上传头像：<input type="file"> <br />
+        <!--单选按钮和复选框可以设置checked属性设置页面刷新时的默认值-->
+        <input type="checkbox" checked="checked"> 我同意
+        <!--submit提交表单数据给后台服务器-->
+        <input type="submit" value="注册"><input type="reset" value="清除"> <br />
+        <input type="button" value="发送验证码">
+    </form>
+</body>
+</html>

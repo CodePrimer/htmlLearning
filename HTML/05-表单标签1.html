@@ -12,7 +12,7 @@
     <p>表单域(form)是一个包含表单元素的区域</p>
 
     <!-- action是后台处理的url地址，method是提交方式，name是表单域名称 -->
-    <form action="demo.pht" method="POST" name="name1">
+    <form action="demo.php" method="GET" name="name1">
         <!-- input输入表单元素 -->
         text类型输入表单元素：<input type="text"> <br />
         button类型输入表单元素：<input type="button"> <br />
@@ -25,6 +25,18 @@
         url类型输入表单元素：<input type="url"> <br />
         month类型输入表单元素：<input type="month"> <br />
         week类型输入表单元素：<input type="week"> <br />
+        range类型输入表单元素：<input type="range"> <br />
+        checkbox类型输入表单元素：<input type="checkbox"> <br />
+        hidden类型输入表单元素：<input type="hidden"> <br />
+        number类型输入表单元素：<input type="number"> <br />
+        radio类型输入表单元素：<input type="radio"> <br />
+        <!-- 单选按钮必须有相同的name名字才可以实现多选1 -->
+        <input type="radio" name="r" checked="checked">单选1 <input type="radio" name="r">单选2 <input type="radio" name="r">单选3 <br />
+        <!-- value规定input默认值 -->
+        <input type="text" value="请输入文字" maxlength="5"> <br />
+        <!-- submit提交表单域中所有信息 -->
+        <input type="submit" value="提交信息">
+        <input type="reset">
     </form>
 </body>
 </html>
