@@ -21,24 +21,35 @@
         }
 
         /* 表格样式 */
-        table, tr, th {
-            border-collapse: collapse;
+        table{
+            width: 300px;
+            height: 100px;
+        }
+        table, 
+        th, td{
+            border-width: 1px;
             border-style: solid;
-            border-color: black;
+            border-color: pink;
+
+            border-collapse: collapse;
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div></div>
 
+    <br>
     <table>
+        <th>name</th>
+        <th>year</th>
         <tr>
-            <th>wangbin</th>
-            <th>1993</th>
+            <td>wangbin</td>
+            <td>1993</td>
         </tr>
         <tr>
-            <th>xuming</th>
-            <th>1993</th>
+            <td>xuming</td>
+            <td>1993</td>
         </tr>
     </table>
 </body>

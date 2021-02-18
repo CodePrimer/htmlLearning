@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .far {
+
+            width: 900px;
+            height: 500px;
+            background-color: pink;
+            margin-top: 20px;
+        }
+
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            margin-top: 10px;
+        }
+
+        .far1 {
+            /* border-top: 1px solid transparent; */
+            /* padding: 1px; */
+            overflow: hidden;
+            width: 900px;
+            height: 500px;
+            background-color: pink;
+            margin-top: 20px;
+        }
+
+        .son1 {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 需求
+    父级盒子 上外边距20px
+    子级盒子在父盒子内 上外边距80px -->
+    <div class="far">
+        <div class="son"></div>
+    </div>
+
+    <!-- 
+    解决方案
+    1.父元素定义上边框
+    2.父元素定义上内边距
+    3.父元素添加overflow:hidden 
+
+    其他方法，浮动、固定、绝对定位
+    -->
+    <div class="far1">
+        <div class="son1"></div>
+    </div>
+
+</body>
+</html>

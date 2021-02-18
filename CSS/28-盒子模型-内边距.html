@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内边距padding</title>
+    <style>
+        .div1 {
+            width: 110px;
+            height: 30px;
+            background-color: pink;
+
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 10px;
+        }
+
+        .div2 {
+            width: 110px;
+            height: 30px;
+            background-color: pink;
+
+            /* padding-left: 10px;
+            padding-top: 10px; */
+        }
+
+        .div3 {
+            width: 110px;
+            height: 30px;
+            background-color: pink;
+            /* 1个值 代表上下左右都有5像素内边距 */
+            padding: 5px;
+            /* 2个值 代表上下内边距是5像素 左右内边距是10像素 */
+            padding: 5px 10px;
+            /* 3个值 代表上内边距5像素 左右内边距是10像素 下内边距是20像素 */
+            padding: 5px 10px 20px;
+            /* 4个值 代表上内边距5像素 右内边距10像素 下内边距20像素 左内边距30像素 顺时针 */
+            padding: 5px 10px 20px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        我是盒子内容
+    </div>
+    <br>
+    <div class="div2">
+        我是盒子内容
+    </div>
+    <br>
+    <div class="div3">
+        我是盒子内容
+    </div>
+
+    <p>内边距padding影像盒子的实际大小</p>
+</body>
+</html>
