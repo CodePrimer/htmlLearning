@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒子阴影</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: rgb(148, 79, 79);
+            margin: 20px auto;
+            
+            /* 
+            box-shadow: h-shadow v-shadow blur spread color inset; 
+
+            h-shadow	必需的。水平阴影的位置。允许负值
+            v-shadow	必需的。垂直阴影的位置。允许负值
+            blur	    可选。模糊距离
+            spread	    可选。阴影的大小
+            color	    可选。阴影的颜色。在CSS颜色值寻找颜色值的完整列表
+            inset	    可选。默认外阴影 inset-内阴影
+            */
+            /* box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3); */
+        }
+
+        div:hover {
+            box-shadow: 10px 10px 10px -4px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+<body>
+    <a href="#"><div></div></a>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆角边框</title>
+    <style>
+        .div1 {
+            width: 80px;
+            height: 50px;
+            border: 1px black solid;
+            background-color: pink;
+            border-radius: 20px;
+        }
+
+        .div2 {
+            width: 80px;
+            height: 50px;
+            border: 1px black solid;
+            background-color: pink;
+            border-bottom-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .div3 {
+            /* 使用 div 生成圆形 */
+            width: 50px;
+            height: 50px;
+            border: 1px black solid;
+            background-color: pink;
+            border-radius: 50%;
+        }
+
+        .div4 {
+            /* 
+            使用 div 生成圆角矩形 
+            radius设置为高度的一半
+            */
+            width: 100px;
+            height: 50px;
+            border: 1px black solid;
+            background-color: pink;
+            border-radius: 25px;
+        }
+
+        .div5 {
+            /* radius简写 */
+            width: 100px;
+            height: 100px;
+            border: 1px black solid;
+            background-color: pink;
+            /* 顺时针 */
+            border-radius: 10px 20px 30px 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>圆角边框是css3新增属性，
+        在圆角边框出现之前，前端开发有的采用整块的圆角图片作为背景，
+        有的采用小的圆角图片分别放在元素的四角，非常麻烦，灵活性差，也达到降低了网站的整体性能，
+        而圆角边的出现则降低了开发和维护的难度。</p>
+    <div class="div1"></div>
+    <br>
+    <div class="div2"></div>
+    <br>
+    <div class="div3"></div>
+    <br>
+    <div class="div4"></div>
+    <br>
+    <div class="div5"></div>
+</body>
+
+</html>

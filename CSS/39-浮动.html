@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动</title>
+    <style>
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+
+        .two {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .left {
+            clear: both;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            float: left;
+        }
+
+        .right {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>抛出问题</h2>
+    <p>1.多个块级元素在一行显示</p>
+    <p>2.两个盒子一个在左侧，一个在右侧</p>
+
+    <h2>解决方案</h2>
+    <p>多个块级元素纵向排列 - 标准流</p>
+    <p>多个块级元素横向排列 - 浮动</p>
+
+    <h2>浮动的含义</h2>
+    <p>浮动让元素脱离正常流，向父容器的左边或右边移动直到碰到包含容器的边【经测试碰到padding即停】或者碰到其他浮动元素。文本和行内元素将环绕浮动元素。</p>
+
+    <br>
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="left">左侧</div>
+    <div class="right">右侧</div>
+</body>
+
+</html>
