@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>子选择器</title>
+    <style>
+        h1 > strong {color:red;}
+    </style>
 </head>
 <body>
-    
+    <!-- 这个规则会把第一个 h1 下面的两个 strong 元素变为红色，但是第二个 h1 中的 strong 不受影响： -->
+    <h1>This is <strong>very</strong> <strong>very</strong> important.</h1>
+    <h1>This is <em>really <strong>very</strong></em> important.</h1>
 </body>
 </html>

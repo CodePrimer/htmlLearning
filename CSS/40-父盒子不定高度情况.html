@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 父盒子不设置高度 */
+            width: 800px;
+            border: 1px solid blue;
+            margin: 0 auto;
+        }
+
+        .one {
+            /* 给两个盒子加浮动 */
+            float: left;
+            width: 300px;
+            height: 200px;
+            background-color: purple;
+
+        }
+
+        .two {
+            /* 
+                浮动的元素不占空间。
+                加完浮动后父盒子高度变为0，
+                影像后续标准流的排版。
+             */
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <p>我们前面浮动元素有一个标准流的父元素，这个父元素都是有高度的。</p>
+    <p>但是在某些情况下，父元素不好设置高度。</p>
+    <p>1.子盒子数量不一定</p>
+    <p>2.盒子中放文本，文本长度不定</p>
+
+    <div class="box">
+        <div class="one"></div>
+        <div class="two"></div>
+
+    </div>
+</body>
+
+</html>
