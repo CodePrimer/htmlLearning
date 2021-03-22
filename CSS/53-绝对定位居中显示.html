@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绝对定位居中显示</title>
+    <style>
+        .w {
+            
+            width: 800px;
+            height: 1000px;
+            background-color: #888;
+            margin: 0 auto;
+        }
+        
+        .center {
+            position: relative;
+            /* 先走父盒子的50% 再设置本身盒子宽度一半的负margin值 */
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="center"></div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 
+                给div添加左浮动
+                照理说盒子会压住下面的文字，但并不是。
+
+                div确实压住了p段落，但不会压住标准流的文字和图片。
+
+                因为float原本设计之初是为了解决文字环绕问题。
+             */
+
+            /*
+                如果设置了绝对定位，则会压住下方所有盒子。
+            */
+            /* float: left; */
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <p>段落段落段落段落段落段落段落段落段落段落段落段落段落段落</p>
+</body>
+
+</html>

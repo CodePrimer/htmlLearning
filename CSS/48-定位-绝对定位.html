@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div没有父元素情况 绝对定位以浏览器为准*/
+        
+        .box1 {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        /* 
+            创建第二个盒子时，发现box1脱标了 
+
+            试验父元素无定位时，子元素绝对定位情况
+            发现 父元素无定位时，子元素若是绝对定位，则还是以浏览器为准
+        */
+        
+        .box2 {
+            width: 600px;
+            height: 200px;
+            margin: 5px auto;
+            background-color: deeppink;
+        }
+        
+        .son {
+            position: absolute;
+            left: 50px;
+            bottom: 50px;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+        /* 试验父级的父级级有定位，父级无定位，子元素的绝对定位是什么情况 */
+        
+        .box3 {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 600px;
+            height: 200px;
+            background-color: deeppink;
+        }
+
+        .second {
+            width: 200px;
+            height: 150px;
+            background-color: orange;
+        }
+
+        /* 
+            third相对于box3进行了绝对定位
+            向上找包含定位的父元素
+        */
+        .third {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2
+        <div class="son"></div>
+    </div>
+    <div class="box3">
+        <div class="second">
+            <div class="third"></div>
+        </div>
+    </div>
+</body>
+
+</html>

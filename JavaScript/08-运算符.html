@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>运算符</title>
+    <script>
+        // 自增运算符
+        var x = 1;
+        var y = x++;
+        // 后置自增 先赋值 后自增
+        // y=1 x=2
+        console.log(x);
+        console.log(y)
+        
+        var x = 1;
+        var y = ++x;
+        // 前置自增 先自增 后赋值
+        // y=2 x=2
+        console.log(x);
+        console.log(y)
+
+        // 逻辑运算符逻辑中断
+        var num1 = 1;
+        var str1 = 'a';
+        // 与运算左侧已经为false，则不执行后续代码
+        console.log(str1 == 'b' && num1++);
+        console.log(num1)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

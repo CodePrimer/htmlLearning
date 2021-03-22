@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定定位-以浏览器的可视窗口为参照</title>
+    <style>
+        .w {
+            width: 800px;
+            height: 1400px;
+            margin: 0 auto;
+            background-color: rgba(80, 80, 80, 0.1);
+        }
+        
+        .fixed-box-left {
+            position: fixed;
+            top: 40%;
+            left: 0;
+            width: 30px;
+            height: 120px;
+            border-radius: 20px;
+            /* 使矩形圆角挡住原始图片 */
+            overflow: hidden;
+        }
+        
+        .fixed-box-left img {
+            width: 100%;
+        }
+        
+        .fixed-box-right {
+
+            position: fixed;
+            bottom: 0;
+            /* 
+                先使用固定定位偏移浏览器可视窗口的一半
+                再使用margin属性偏移版心宽度的一半    
+            */
+            left: 50%;
+            margin-left: 400px;
+            width: 30px;
+            height: 120px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w"></div>
+    <!-- 样例2 紧贴版心右侧栏 -->
+    <div class="fixed-box-right"></div>
+
+    <!-- 样例1 紧贴浏览器左侧栏 -->
+    <div class="fixed-box-left">
+        <img src="./left.png" alt="">
+    </div>
+
+
+</body>
+
+</html>

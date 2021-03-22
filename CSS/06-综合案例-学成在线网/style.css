@@ -134,13 +134,15 @@ body {
 }
 
 .user span .usericon {
-    display: inline-block;
+    /* display: inline-block; */
     width: 30px;
     height: 30px;
 }
 
 .user span .username {
-    display: inline-block;
+    /* display: inline-block; */
+    height:20px;
+    line-height: 20px;
 }
 
 .banner {
@@ -304,6 +306,7 @@ body {
 }
 
 .box .box-bd ul li {
+    position: relative;
     float: left;
     width: 228px;
     height: 270px;
@@ -315,9 +318,15 @@ body {
     margin-right: 0;
 }
 
-.box .box-bd ul li img {
+.box .box-bd ul li > img {
     /* 强制拉伸图片和父盒子一样宽 */
     width: 100%;
+}
+
+.box .box-bd ul li em {
+    position: absolute;
+    right: -3px;
+    top: 4px;
 }
 
 .box .box-bd ul li h4 {
@@ -377,11 +386,11 @@ body {
 
 .footer .links dt {
     font-size: 16px;
-    color:slategray;
+    color: slategray;
     margin-bottom: 5px;
 }
 
-.footer .links dd a{
+.footer .links dd a {
     font-size: 12px;
-    color:rgb(18, 18, 18);
+    color: rgb(18, 18, 18);
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        .one {
+            left: 0;
+            top: 0;
+            background-color: red;
+            /* 只有定位的盒子才有z-index属性 */
+            z-index: 3;
+        }
+
+        .two {
+            background-color: pink;
+            left: 50px;
+            top: 50px;
+            z-index: 2;
+        }
+
+        .three {
+            background-color: green;
+            left: 100px;
+            top: 100px;
+        }
+
+        .one,
+        .two,
+        .three {
+            position: absolute;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+        在使用定位布局时，可能出现盒子重叠的情况，此时可以使用z-index来控制盒子的前后叠放顺序。
+        数值越大越靠上 
+    -->
+    <div class="one">111</div>
+    <div class="two">222</div>
+    <div class="three">333</div>
+</body>
+</html>
