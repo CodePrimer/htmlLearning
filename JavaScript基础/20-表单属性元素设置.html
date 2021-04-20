@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>按钮</button>
+    <input type="text" name="" id="" value="请输入内容">
+    <script>
+        var btn = document.querySelector('button');
+        var input = document.querySelector('input');
+
+        btn.onclick = function() {
+            // 按钮被点击后修改input表单中的文本
+            input.value = '我被点击了';
+            // 按钮被点击后不能再被点击
+            btn.disabled = true;
+            // this 指向的是时间函数的调用者 btn
+            this.disabled = true;
+        }
+    </script>
+</body>
+</html>

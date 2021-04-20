@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .father {
+        /* position: relative; */
+        width: 200px;
+        height: 200px;
+        background-color: #333;
+        /* margin: 300px auto; */
+    }
+
+    .son {
+        /* position: absolute;
+        top: 50px;
+        left: 50px; */
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <!-- 
+        事件流描述的是冲页面中接收事件的顺序。
+
+        事件发生时会在元素节点之间按照特定的顺序传播，这个传播过程即DOM事件流。
+
+        比如我们给一个div注册了点击事件：
+
+        document
+        -- Element html
+            -- Element body
+                -- Element div
+
+
+
+        DOM事件流分为3个阶段
+
+        1. 捕获阶段
+        事件从Document节点自上而下向目标节点传播的阶段
+        document 首先接收到鼠标点击，因为没有鼠标点击事件，所以什么都没做
+        然后向下传播，直到 div
+
+        2. 当前目标阶段
+        真正的目标节点正在处理事件的阶段
+            
+        3. 冒泡阶段
+        事件从目标节点自下而上向Document节点传播的阶段
+
+
+     -->
+
+    <div class="father">
+        <div class="son">Son盒子</div>
+    </div>
+    <script>
+        // 1. JS代码中只能执行捕获或者冒泡其中一个阶段
+        // 2. onclick 和 attachEvent(ie) 只能得到冒泡阶段
+
+        // 3.捕获阶段 如果addEventListener 第三个参数是true 则是捕获阶段
+        // document -> html -> body -> father-> son
+        // var son = document.querySelector('.son');
+        // son.addEventListener('click', function () {
+        //     alert('son');
+        // }, true);
+
+        // var father = document.querySelector('.father');
+        // father.addEventListener('click', function () {
+        //     alert('father');
+        // }, true);
+
+        // 以上代码执行 当鼠标点击 son ，由于处于捕获阶段 所以先弹出father 再弹出son
+
+        // 4.冒泡阶段
+        var son = document.querySelector('.son');
+        son.addEventListener('click', function () {
+            alert('son');
+        }, false);
+
+        var father = document.querySelector('.father');
+        father.addEventListener('click', function () {
+            alert('father');
+        }, false);
+
+        // 以上代码执行 当鼠标点击 son ，由于处于冒泡阶段 所以先弹出son 再弹出father
+        
+        // 实际开发很少使用捕获事件，更关注冒泡事件
+
+        // 有些事件没有冒泡，比如onblur、onfocus、onmouseenter、onmouseleave
+
+
+    </script>
+
+</body>
+
+</html>

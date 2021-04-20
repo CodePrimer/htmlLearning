@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文档对象模型DOM</title>
+</head>
+
+<body>
+    <!-- 
+        Web Api 是浏览器提供的一套操作浏览器功能和页面元素的API (BOM 和 DOM)
+     -->
+
+    <!-- 
+        DOM树
+        文档 document
+        - 根元素 html
+            - 元素 head
+                - 元素 title
+                    - 文本
+            - 元素 body
+                - 元素 a （属性herf）
+                    - 文本
+                - 元素 h1
+                    - 文本
+
+    -->
+
+    <!-- 获取网页元素的几种方法
+    
+        1.根据ID获取
+        2.根据标签名获取
+        3.通过HTML5新增方法获取
+        4.特殊元素获取
+    
+    -->
+
+
+    <div id="time">2021-03-24</div>
+    <div id="time2"></div>
+
+    <div class="box">1</div>
+    <div class="box">2</div>
+
+    <script>
+        // 网页加载从上至下，所以script要写在标签后
+
+        // 1.根据ID获取 
+        var ele = document.getElementById('time');
+        console.log(ele);
+        var ele2 = document.getElementById('time2');
+        ele2.innerHTML = '2021-03-25 11:40:00';
+
+        // 2.根据标签名获取 
+        var eleDiv = document.getElementsByTagName('div') // 查出所有div，返回伪列表
+        console.log(eleDiv);
+        console.log(typeof(eleDiv));
+
+        // 3.根据HTML5新增方法获取
+        var ele3 = document.getElementsByClassName('box');
+        var ele4 = document.querySelector('.box');   // 返回第一个搜索结果
+        var ele5 = document.querySelectorAll('.box');   // 返回所有搜索结果
+        var ele6 = document.querySelector('#time');   // 返回所有搜索结
+        console.log(ele3);
+        console.log(ele4);
+        console.log(ele5);
+        console.log(ele6.innerHTML);
+
+        // 4.获取body 和 html 元素
+        var bodyEle = document.body;
+        console.log(bodyEle);
+        console.dir(bodyEle);
+
+        var htmlEle = document.documentElement
+        console.log(htmlEle);
+        console.dir(htmlEle)
+        
+    </script>
+
+</body>
+
+</html>

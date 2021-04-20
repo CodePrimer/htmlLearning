@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 10px auto;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        th {
+            background-color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>sex</th>
+                <th>tel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class='content'>
+                <td>wang</td>
+                <td>18</td>
+                <td>male</td>
+                <td>111222333</td>
+            </tr>
+            <tr class='content'>
+                <td>xu</td>
+                <td>18</td>
+                <td>female</td>
+                <td>333222111</td>
+            </tr>
+            <tr class='content'>
+                <td>wang</td>
+                <td>18</td>
+                <td>male</td>
+                <td>111222333</td>
+            </tr>
+            <tr class='content'>
+                <td>xu</td>
+                <td>18</td>
+                <td>female</td>
+                <td>333222111</td>
+            </tr>
+            <tr class='content'>
+                <td>wang</td>
+                <td>18</td>
+                <td>male</td>
+                <td>111222333</td>
+            </tr>
+            <tr class='content'>
+                <td>xu</td>
+                <td>18</td>
+                <td>female</td>
+                <td>333222111</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var tbodyElement = document.querySelector('tbody');
+        tbodyElement.addEventListener('mouseover', tableFocus)
+
+        function tableFocus(e) {
+            // 排他
+            var trs = document.querySelector('tbody').querySelectorAll('tr');
+            // console.log(trs);
+            for (var i = 0; i < trs.length; i++) {
+                trs[i].style.backgroundColor = 'white';
+            }
+            // 加样式
+            // console.log(e.target);
+            var targetTr = e.target.parentElement;
+            console.log(targetTr);
+            targetTr.style.backgroundColor = 'skyblue';
+        }
+    </script>
+</body>
+
+
+</html>

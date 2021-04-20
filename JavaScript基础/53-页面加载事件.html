@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 页面加载完成后触发
+        window.addEventListener('load', function () {
+            var button = document.querySelector('button');
+            button.addEventListener('click', function () {
+                alert(11);
+            })
+        });
+
+        window.addEventListener('load', function () {
+            alert(22);
+        });
+
+        // DOMContentLoaded 事件触发，仅当DOM加载完成，不包括样式表，图片，flash等等
+        // 优点：如果页面图片很多的话，从用户访问到onload触发可能需要较长的时间，交互效果就不能实现，必然影像用户体验，此时用DOMContentload事件比较合适
+        document.addEventListener('DOMContentLoaded', function () {
+            alert(33);
+        });
+    </script>
+    <button>点击我</button>
+</body>
+
+</html>

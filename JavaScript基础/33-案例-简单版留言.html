@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .textArea {
+            width: 400px;
+            height: 160px;
+            /* background-color: pink; */
+        }
+
+        .textArea textarea {
+            margin: 2px 0 2px 0px;
+            outline: none;
+            resize: none;
+            width: 400px;
+            height: 120px;
+            border: 1px solid skyblue;
+        }
+
+        .textArea button {
+            margin-left: 172px;
+        }
+
+        .textList {
+            overflow-y: auto;
+            width: 400px;
+            height: 600px;
+            border: 1px solid rgb(167, 243, 179);
+        }
+
+        .textList h3 {
+            font-weight: 700;
+            text-align: center;
+        }
+
+
+        .box {
+            position: relative;
+            width: 380px;
+            height: 100px;
+            font-size: 14px;
+            border-bottom: 1px solid black;
+            /* background-color: pink; */
+        }
+
+        .box .username {
+            height: 25px;
+            padding: 0 0 0 5px;
+            font-weight: 600;
+            color: skyblue;
+            text-align: left;
+            line-height: 25px;
+            /* background-color: rgb(81, 125, 182); */
+        }
+
+        .box .content {
+            overflow: auto;
+            padding: 0 0 0 5px;
+            color: #222;
+            height: 50px;
+            text-align: left;
+            /* background-color: rgb(203, 224, 168); */
+        }
+
+        .box .createtime {
+            padding: 0 0 0 5px;
+            font-size: 12px;
+            color: #555;
+            height: 25px;
+            text-align: left;
+            line-height: 25px;
+            /* background-color: rgb(203, 224, 168); */
+
+        }
+
+        .box .buttonDelete {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="textArea">
+        <textarea id="liuyanban"></textarea>
+        <button>提交留言</button>
+    </div>
+    <div class="textList">
+        <h3>留言区</h3>
+        <ul>
+            <!-- <li>
+                <div class="box">
+                    <p class="username">dabuliu.</p>
+                    <p class="content">今天好开心..</p>
+                    <p class="createtime">2021-04-07 17:17</p>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+
+    <script>
+        var username = 'dabuliu.'
+
+        var ulElement = document.querySelector('.textList').children[1]
+        console.log(ulElement);
+        var button = document.querySelector('button');
+        button.onclick = function () {
+            var liuyanban = document.getElementById('liuyanban')
+            console.log(liuyanban);
+            var string1 = liuyanban.value;
+            console.log(string1);
+            // 创建li
+            var liElement = document.createElement('li');
+            // 创建当前留言box div
+            var divElement_box = document.createElement('div')
+            divElement_box.className = 'box';
+            // 添加留言box
+            ulElement.insertBefore(divElement_box, ulElement.children[0]);
+
+            // 创建当前留言username p
+            var pElement_username = document.createElement('p');
+            pElement_username.className = 'username';
+            pElement_username.innerHTML = username;
+            divElement_box.appendChild(pElement_username);
+
+            // 创建当前留言content p
+            var pElement_content = document.createElement('p');
+            pElement_content.className = 'content';
+            pElement_content.innerHTML = string1;
+            divElement_box.appendChild(pElement_content);
+
+            // 创建当前留言时间 p
+            var pElement_time = document.createElement('p');
+            pElement_time.className = 'createtime';
+            var curDate = new Date();
+            var yyyy = curDate.getFullYear();
+            var mm = curDate.getMonth() + 1;
+            var dd = curDate.getDate();
+            var hour = curDate.getHours();
+            var minute = curDate.getMinutes();
+            var dateStr = yyyy + '-' + mm + '-' + dd + ' ' + hour + ':' + minute;
+            // console.log(dateStr);
+            pElement_time.innerHTML = dateStr;
+            divElement_box.appendChild(pElement_time);
+
+            // 创建一个删除按钮
+            var buttonDelete = document.createElement("input");
+            buttonDelete.className = 'buttonDelete';
+            buttonDelete.type = 'button';
+            buttonDelete.value = 'x';
+            divElement_box.appendChild(buttonDelete);
+
+            buttonDelete.onclick = function () {
+                divElement_box.remove();
+            }
+
+            // 清除留言板输入内容
+            liuyanban.value = '';
+        }
+    </script>
+</body>
+
+</html>

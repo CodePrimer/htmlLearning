@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 5px solid #000000;
+            padding: 10px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容
+        我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容 我是内容
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        // scrollHeight 不包含border 包含padding
+        console.log(div.scrollHeight);
+        console.log(div.clientHeight);
+        // scrollHeight是真正内容的大小
+
+        // scroll事件 只要拖动滚动条就会触发
+        div.addEventListener('scroll', function () {
+            // scrollTop是滚动条当前距离
+            // 可以动态的得到该元素的大小、滚动距离等
+            console.log(div.scrollTop);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        生活实例：
+        有三个同事预计会在周一收到快递。为签收快递，有两种办法：
+        1. 三个人在公司门口等快递；
+        2. 委托给前台MM代为签收。
+        现实当中，我们大都采用委托的方案（公司也不会容忍那么多员工站在门口就为了等快递）。
+        前台MM收到快递后，她会判断收件人是谁，然后按照收件人的要求签收，甚至代为付款。
+        这种方案还有一个优势，那就是即使公司里来了新员工（不管多少），前台MM也会在收到寄给新员工的快递后核实并代为签收。
+    -->
+
+    <div class="box">
+        <input type="button" id="add" value="添加">
+        <input type="button" id="remove" value="删除">
+        <input type="button" id="move" value="移动">
+        <input type="button" id="select" value="选择">
+    </div>
+
+    <script>
+        var div = document.querySelector('div');
+
+        function boxClick(e) {
+            // console.log(e);
+            // 获取触发对象
+            var target = e.target
+            if(target.nodeName.toLocaleLowerCase() != 'input'){
+                return;
+            }
+            if (target.id == 'add') {
+                console.log('添加');
+            } else if (target.id == 'remove') {
+                console.log('删除');
+            } else if (target.id == 'move') {
+                console.log('移动');
+            } else if (target.id == 'select') {
+                console.log('选择');
+            } else {
+                console.log('出错');
+            }
+
+        }
+        div.addEventListener('click', boxClick);
+    </script>
+</body>
+
+</html>

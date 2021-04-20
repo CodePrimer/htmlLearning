@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">abc
+        <span class="pic"></span>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+
+    <ul class="test"></ul>
+
+    <script>
+        var div = document.querySelector('.box');
+        // 节点名称
+        console.log(div.nodeName);
+        // 节点类型
+        console.log(div.nodeType);
+        // 节点值
+        console.log(div.nodeValue);
+
+        // 父节点获取
+        var pic = document.querySelector('.pic');
+        console.log(pic.parentNode);
+
+        // 子节点获取
+        // 获取ol -> li
+        // childNodes 获取所有子节点 文本、标签、
+        console.log(document.querySelector('ol').childNodes);
+        var ol = document.querySelector('ol');
+        for (var i = 0; i < ol.childNodes.length; i++) {
+            if (ol.childNodes[i].nodeType == 1) {
+                console.log(ol.childNodes[i]);
+            }
+        }
+        // children (非标准)
+        var ol = document.querySelector('ol');
+        console.log(ol.children);
+
+        // 第一个子节点
+        console.log(ol.firstChild);
+        // 第一个元素子节点 兼容性 ie9以上
+        console.log(ol.firstElementChild);
+        // 最后一个子节点
+        console.log(ol.lastChild);
+        // 最后一个元素子节点 兼容性 ie9以上
+        console.log(ol.lastElementChild);
+        
+        // 实际开发写法
+        console.log(ol.children[0]);
+        console.log(ol.children[ol.children.length-1]);
+
+        // 兄弟节点获取
+        // 下一个 没有则返回null
+        console.log(div.nextSibling);
+        console.log(div.nextElementSibling);
+        // 上一个 没有则返回null
+        console.log(div.previousSibling);   
+        console.log(div.previousElementSibling);
+
+        // 创建节点
+        var liElement = document.createElement('li');
+        // 添加节点 appendChild
+        var ulTest = document.querySelector('.test');
+        ulTest.appendChild(liElement);
+        // 添加节点 insertBefore
+        var liElement2 = document.createElement('li');
+        ulTest.insertBefore(liElement2, ulTest.children[0]);
+    </script>
+
+</body>
+
+</html>

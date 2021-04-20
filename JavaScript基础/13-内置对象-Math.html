@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象Math</title>
+    <script>
+        // Math对象 （静态对象）
+        // console.log(Math.PI);
+
+        // 自行封装一个Math对象
+        var MyMath = {
+                PI: 3.1415926,
+                max: function() {
+                    var maxValue = arguments[0];
+                    for (var i = 0; i < arguments.length; i++) {
+                        if (arguments[i] > maxValue) {
+                            maxValue = arguments[i];
+                        }
+
+                    }
+                    return maxValue;
+                },
+                min: function() {
+                    console.log('min');
+                }
+            }
+            // console.log(MyMath.max(1, 5, 9));
+            // console.log(MyMath.min());
+
+
+        // 案例 猜数字
+        // 系统随机生成一个1-10的整数，用户输入数字，并提示大了或小了
+        var correctNum = Math.floor(Math.random() * 10)
+        console.log(correctNum);
+        while (true) {
+            var inputNum = prompt("猜一个数字吧");
+            if (inputNum > correctNum) {
+                alert("大了");
+            } else if (inputNum < correctNum) {
+                alert("小了");
+            } else {
+                alert("猜对啦");
+                break;
+            }
+        }
+        alert("猜数字游戏结束");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

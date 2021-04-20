@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./flexible.js"></script>
+</head>
+<body>
+    <a href="http://www.baidu.com">链接</a>
+    <script>
+        console.log(window.devicePixelRatio);
+        // 火狐浏览器中有 "往返缓存" 这个缓存中不仅保存着页面数据 还保存了DOM和JS状态
+        // 此时按后退按钮不能刷新页面
+        // 此时可以用pageshow事件触发，这个事件在页面显示时就进行触发
+        window.addEventListener('pageshow', function(){
+            alert(1);
+        });
+        window.addEventListener('resize', function(){
+            console.log(111);
+        })
+    </script>
+</body>
+</html>

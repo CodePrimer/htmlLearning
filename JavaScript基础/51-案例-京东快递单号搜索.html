@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            width: 200px;
+            height: 100px;
+            position: relative;
+            /* background-color: pink; */
+        }
+
+        .context {
+            display: none;
+            position: absolute;
+            top: 4px;
+            width: 171px;
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+            padding: 5px 0;
+            font-size: 18px;
+            list-style: 20px;
+            color: #333;
+        }
+
+        .context::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 34px;
+            left: 18px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+        }
+
+        .input {
+            position: absolute;
+            top: 48px;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="context"></div>
+        <input type="text" class="input" name="" id="" placeholder="请输入您的快递单号">
+    </div>
+    <script>
+        var contextElement = document.querySelector('.context');
+        var inputElement = document.querySelector('.input');
+
+        inputElement.addEventListener('keyup', refreshStr)
+
+        function refreshStr(e) {
+
+            if (this.value.length > 0) {
+                contextElement.style.display = 'block';
+            }
+            if (this.value.length == 0) {
+                contextElement.style.display = 'none';
+            }
+            contextElement.innerHTML = this.value;
+        }
+
+        inputElement.addEventListener('blur', function () {
+            contextElement.style.display = 'none';
+        })
+        inputElement.addEventListener('focus', function () {
+            if (this.value.length > 0) {
+                contextElement.style.display = 'block';
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登陆页面</title>
+    <style>
+        .box {
+            position: relative;
+            width: 400px;
+            margin: 100px auto;
+            border: 1px solid red;
+        }
+
+        .box input {
+            width: 350px;
+            height: 30px;
+            /* 去除默认边框 */
+            border: none;
+            /* 添加下边框线 */
+            border-bottom: 1px solid #ccc;
+            /* 去除选中时的蓝色边框 */
+            outline: none;
+            margin: 5px 0 5px 10px;
+        }
+
+        .box input:hover {
+            border: 1px solid green;
+        }
+
+        .box img {
+            position: absolute;
+            top: 55px;
+            right: 8px;
+            height: 15px;
+        }
+
+        .box button {
+            width: 150px;
+            height: 40px;
+            margin: 5px 120px 5px 120px;
+        }
+    </style>
+</head>
+
+<!-- 
+    1.页面布局
+    2.
+ -->
+
+<body>
+    <div class="box">
+        <input type="text" name="" id="user">
+        <label for="">
+            <img src="./img/pwd_close.jpg" alt="" id="eye">
+        </label>
+        <input type="password" name="" id="pwd">
+        <button>登陆</button>
+    </div>
+    <script>
+        // 1.获取元素
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+
+        // 2.注册事件 处理事件
+        // pwdFlag控制状态-默认为密码
+        var pwdFlag = 0;
+        eye.onclick = function () {
+            if (pwdFlag == 0) {
+                pwd.type = 'text';
+                this.src = './img/pwd_open.jpg'
+                pwdFlag = 1;
+            } else {
+                pwd.type = 'password';
+                this.src = './img/pwd_close.jpg'
+                pwdFlag = 0;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

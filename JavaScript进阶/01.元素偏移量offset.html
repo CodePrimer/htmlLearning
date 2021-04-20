@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            margin-left: 45px;
+        } 
+
+        .w {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin: 0 auto 200px;
+            padding: 10px;
+            border: 15px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="w"></div>
+    <script>
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+        var w = document.querySelector('.w')
+        // element.offsetParent 返回元素带有定位的父元素，默认返回body
+        console.log(father.offsetParent);
+        // element.offsetTop 返回上方的偏移
+        console.log(father.offsetTop);
+        // 父元素没有定位，则返回与body的距离
+        console.log(son.offsetLeft);   
+        // element.offsetLeft 返回左方的偏移
+        console.log(father.offsetLeft);
+        // element.offsetWidth
+        console.log(w.offsetWidth);
+        // element.offsetHeight
+        console.log(w.offsetHeight);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        // 1.传统解绑方式
+        var divs = document.querySelectorAll('div');
+        divs[0].onclick = function () {
+            alert('点击1');
+            this.onclick = null;
+        }
+
+        // 2.EventListener方式
+        divs[1].addEventListener('click', click2)
+        function click2() {
+            alert('点击2');
+            divs[1].removeEventListener('click', click2);
+        }
+
+        // 3.IE9之前兼容 detachEvent
+        divs[2].attachEvent('onclick', click3)
+        function click3() {
+            alert('点击3');
+            divs[2].detachEvent('onclick', click3);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // setTimeout()
+        // 调用方式 window.setTimeout(调用函数, [延迟毫秒数]);
+        // 页面中可能有很多定时器，我们经常给定时器添加标识符。
+        var time1 = setTimeout(function () {
+            console.log('2 second passed.');
+        }, 2000);
+        var time2 = setTimeout(function () {
+            console.log('5 second passed.');
+        }, 5000)
+
+        // 停止定时器
+        window.clearTimeout(time2);
+
+        // setInterval()
+        // 每隔一段时间就重复调用回调函数
+        var time11 = setInterval(function(){
+            console.log('过了2秒');
+        }, 2000)
+    </script>
+</body>
+
+</html>

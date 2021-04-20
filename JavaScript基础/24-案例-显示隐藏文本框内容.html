@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            color: #999;
+            outline: none;
+        }
+    </style>
+    <!-- 
+        主页搜索框 备选关键词列表
+        每次刷新页面从备选框中随机选择一个关键词填写到input表单中
+
+        获得焦点时 清空表单用户默认输入
+        失去焦点时 若用户未输入则恢复默认输入
+     -->
+</head>
+
+<body>
+
+    <input type="text" name="" id="input" value="">
+    <script>
+        // 备选关键词列表
+        var keyStrList = ['内存', '显卡', '硬盘', '鼠标', '键盘']
+        var index = parseInt(Math.random() * 5, 10);
+        // console.log(index);
+        var keyStr = keyStrList[index]
+        console.log(keyStr);
+
+        // 页面刷新时赋初值
+        var eleInput = document.querySelector('input');
+        eleInput.value = keyStr;
+
+        // 获得焦点 onfocus
+        eleInput.onfocus = function () {
+            console.log('获得焦点');
+            if (this.value === keyStr) {
+                this.value = '';
+            }
+            // 获得焦点时字体颜色变为深色
+            eleInput.style.color = 'black';
+        }
+        // 失去焦点 onblur
+        eleInput.onblur = function () {
+            console.log('失去焦点');
+            if (this.value === '') {
+                this.value = keyStr;
+            }
+            // 失去焦点时字体颜色变为浅色
+            eleInput.style.color = '#999';
+        }
+    </script>
+</body>
+
+</html>

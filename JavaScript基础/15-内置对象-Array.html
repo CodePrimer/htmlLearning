@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象-Array</title>
+    <script>
+        // 数组去重
+        var arr1 = new Array('c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b');
+        console.log(arr1);
+        var arr2 = new Array();
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr2.indexOf(arr1[i]) == -1){
+                arr2.push(arr1[i]);
+            }
+        }
+        console.log(arr2);
+        console.log(arr2.toString());
+        console.log(arr2.join('_'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>123</div>
+    <p>事件函数测试</p>
+
+    <div class="test">456</div>
+    <ul>
+        <li>1-abc</li>
+        <li>2-abc</li>
+        <li>3-abc</li>
+    </ul>
+    <script>
+        var div = document.querySelector('div');
+        // div.onclick = function (event) {
+        //     console.log(event);
+        // }
+        div.addEventListener('click', function (event) {
+            // console.log(event);
+            // console.log(window.event);
+            e = event || window.event; // 兼容处理
+            console.log(e);
+        })
+        // 1. event 就是一个事件对象 写到我们侦听函数的小括号内 当形参来看
+        // 2. 事件对象只有有了事件，才会存在。它是系统自动给我们创建的，不需要我们传递参数
+        // 3. event 存储跟事件相关的一系列信息，例如 鼠标坐标、键盘按键 等等
+        // 4. 这个事件对象我们可以自己命名 比如 event evt e
+        // 5. 兼容性问题 IE9之前的写法 window.event
+
+        // 关于事件函数的疑惑
+
+        function fn1(arg) {
+            console.log(arg);
+        }
+
+        console.log('开始 事件函数测试');
+        // 当fn1函数被用于普通函数调用时，arg为外部传参
+        fn1('aaa');
+        // 当fn1函数被当做事件函数调用时，arg为事件对象
+        var p = document.querySelector('p');
+        p.onclick = fn1;
+
+        // 常见事件的属性和方法
+        var divTest = document.querySelector('.test');
+        divTest.addEventListener('click', function (e) {
+            // e是触发事件的对象
+            // this是绑定事件的对象
+            // 具体区别见下个例子
+            console.log(e.target);
+            console.log(this);
+            console.log(e.currentTarget);   // IE 兼容问题
+        })
+
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function (e) {
+            // li触发了点击事件（冒泡）
+            // 但实际绑定事件的是ul
+            console.log(e.target);
+            console.log(this);
+        })
+
+        // 兼容处理（了解）
+        ul.onclick = function(e){
+            e = e || window.event;
+            var target = e.target || e.srcElement;
+            console.log(target);
+        }
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // BOM 浏览器对象模型
+        // 它提供了独立于内容而与浏览器窗口进行交互的对象
+        // 核心对象为window
+
+        // window对象是浏览器的顶级对象 它具有双重角色
+        // 1.它是JS访问浏览器的接口。
+        // 2.它是一个全局对象。定义在全局作用域中的变量、函数都会变成window对象的属性和方法。
+
+        var num = 10; // 定义一个全局变量
+        console.log(window.num); // 实际调用window.num
+
+        function fn() { // 定义一个全局方法
+            console.log(11);
+        }
+        window.fn(); // 实际调用window.fn()
+
+        console.dir(window);
+        console.log(window.name);
+    </script>
+</body>
+
+</html>

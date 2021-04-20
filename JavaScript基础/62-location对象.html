@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>跳转百度首页</button>
+    <a href="http://www.baidu.com">跳转百度首页</a>
+
+    <div>页面将在5秒后跳转</div>
+    <script>
+        // window对象给我们提供了一个location属性用于获取或设置窗体的URL，并且可以用于解析URL。
+
+        // URL介绍
+        // 统一资源定位符 
+        // protocol://host:[port]/path/[?query]#fragment
+        // http://www.itcast.cn/index.html?name=andy&age=18#link
+
+        // protocol 通信协议 http ftp maito等等
+        // host 主机名
+        // port 端口号
+        // path 路径
+        // query 参数
+        // fragment 片段 #后面内容常见于链接 锚点
+
+        // 获取整个URL
+        console.log(location.href);
+        // 返回主机名
+        console.log(location.host);
+        // 返回端口号
+        console.log(location.port);
+        // 返回路径
+        console.log(location.pathname);
+        // 返回参数
+        console.log(location.search);
+        // 返回片段
+        console.log(location.hash);
+
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function () {
+            location.href = 'http://www.baidu.com'
+        })
+
+        // 使用 a链接 比 使用location.href 有优势。
+        var timeSecond = 4;
+        var timer = null;
+        var div = document.querySelector('div');
+        var timer = setInterval(function () {
+            if (timeSecond == 0) {
+                clearInterval(timer);
+                location.href = 'http://www.baidu.com';
+            } else {
+                div.innerHTML = '页面将在' + timeSecond + '秒后跳转';
+                timeSecond -= 1;
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

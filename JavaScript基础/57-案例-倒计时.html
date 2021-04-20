@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .countdown {
+            position: relative;
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .countdown div {
+            float: left;
+            width: 80px;
+            height: 80px;
+            background-color: #555;
+            margin: 10px 10px 10px 10px;
+            color: blanchedalmond;
+            font-size: 24px;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="countdown">
+        <div id="hh"></div>
+        <div id="mm"></div>
+        <div id="ss"></div>
+    </div>
+
+    <script>
+        // 1.获取元素
+        var hhDiv = document.querySelector('#hh');
+        var mmDiv = document.querySelector('#mm');
+        var ssDiv = document.querySelector('#ss');
+
+        var inTimeString = '2021-04-18 12:00:00';
+        // 在开启定时器前先调用一次 防止调用延迟
+        countDown();
+        setInterval(countDown, 1000);
+        // 2.开启定时器
+        function countDown() {
+            var nowTime = new Date();
+            var inTime = new Date(inTimeString);
+            var timeDelta = (inTime - nowTime) / 1000;
+            var hh = parseInt(timeDelta / (60 * 60));
+            hh = hh < 10 ? '0' + hh : hh;
+            hhDiv.innerHTML = hh;
+            var mm = parseInt(timeDelta / 60 % 60);
+            mm = mm < 10 ? '0' + mm : mm;
+            mmDiv.innerHTML = mm;
+            var ss = parseInt(timeDelta % 60);
+            ss = ss < 10 ? '0' + ss : ss;
+            ssDiv.innerHTML = ss;
+            // console.log(hh + ':' + mm + ':' + ss);
+        }
+    </script>
+</body>
+
+</html>

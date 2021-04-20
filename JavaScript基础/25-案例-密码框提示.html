@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .message {
+            color: #333;
+            font-size: 15px;
+        }
+        .message_wrong {
+            color :red;
+            font-size: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <input type="password" name="" id="pwd">
+    <span id="message" class="message">请输入6-16位密码</span>
+
+    <script>
+        var input = document.getElementById('pwd');
+        var msg = document.getElementById('message');
+        input.onkeyup = function () {
+            if (this.value.length < 6 || this.value.length > 16) {
+                console.log('错误');
+                msg.innerHTML = '请输入6-16位密码';
+                msg.className = 'message_wrong';
+            } else {
+                console.log('正确');
+                msg.innerHTML = '';
+                msg.className = 'message';
+            }
+        }
+    </script>
+</body>
+
+</html>

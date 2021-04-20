@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+
+        }
+
+        td,
+        th {
+            border: 1px solid #333;
+            text-align: center;
+            padding: 5px 20px 5px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>王彬</td>
+                <td>javascript</td>
+                <td>100</td>
+            </tr> -->
+        </tbody>
+    </table>
+
+    <script>
+        // 先准备数据
+        function Student(_num, _name, _course, _score) {
+            this.num = _num;
+            this.name = _name;
+            this.course = _course;
+            this.score = _score;
+        }
+
+        var stu1 = new Student(1, 'wangbin', 'javascript', '100');
+        var stu2 = new Student(2, 'xuming', 'mysql', '100');
+        var stu3 = new Student(3, 'wangxiaobin', 'math', '100');
+        var stu4 = new Student(4, 'xuxiaoming', 'english', '100');
+
+        // console.log(stu1.name);
+        // console.log(stu2.course);
+
+        var studentList = [stu1, stu2, stu3, stu4];
+
+        // 动态生成表格
+        // 获取tbody标签
+        var tbodyEle = document.querySelector('tbody');
+        for (var i = 0; i < studentList.length; i++) {
+            // 创建一行数据
+            var trEle = document.createElement('tr');
+            // 编号
+            var tdEle = document.createElement('td');
+            tdEle.innerHTML = studentList[i].num;
+            trEle.appendChild(tdEle);
+            // 姓名
+            var tdEle = document.createElement('td');
+            tdEle.innerHTML = studentList[i].name;
+            trEle.appendChild(tdEle);
+            // 科目
+            var tdEle = document.createElement('td');
+            tdEle.innerHTML = studentList[i].course;
+            trEle.appendChild(tdEle);
+            // 成绩
+            var tdEle = document.createElement('td');
+            tdEle.innerHTML = studentList[i].score;
+            trEle.appendChild(tdEle);
+
+            tbodyEle.appendChild(trEle);
+        }
+    </script>
+</body>
+
+</html>

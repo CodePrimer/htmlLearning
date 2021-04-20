@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 字面量创建对象
+        var obj1 = {};
+        var obj2 = {
+            name: "a",
+            age: 10,
+            getName: function() {
+                return this.name;
+            }
+        };
+        console.log(obj1.age);
+        console.log(obj2.getName());
+
+        // 关键字new创建对象
+        var obj3 = new Object();
+        obj3.name = "b";
+        obj3.age = 12;
+        obj3.getAge = function() {
+            return this.age;
+        }
+
+        console.log(obj3.age);
+        console.log(obj3.getAge());
+
+        // 构造函数创建对象
+        function Person(_name, _age) {
+            this.name = _name;
+            this.age = _age;
+            this.getName = function() {
+                return this.name;
+            }
+        }
+        
+        var per1 = new Person("wangbin", 28);
+        console.log(per1.getName());
+        // forin 遍历对象的属性和方法
+        for (const key in per1) {
+            console.log(key);
+            console.log(per1[key]);
+        }
+        
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

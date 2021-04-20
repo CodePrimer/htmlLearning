@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件基础</title>
+
+</head>
+
+<body>
+    <button id="btn">唐伯虎</button>
+    <div id='box'>123</div>
+    <div id='time'></div>
+    <button id='getTime'>获取当前时间</button>
+    <script>
+        // 事件三要素
+        // 1.事件源 - 按钮
+        var btn = document.getElementById('btn');
+        // 2.事件类型 - 鼠标点击事件(onclick)
+
+        // 3.事件处理程序 通过一个函数赋值方式完成
+        btn.onclick = function() {
+            alert('点秋香');
+        }
+
+        // 执行事件的三个步骤
+        // 1.获取事件源
+        // 2.注册事件（绑定事件）
+        // 3.添加事件处理程序（采取函数赋值的形式）
+        var div = document.querySelector('div');
+        div.onclick = function() {
+            console.log('我被选中了');
+        }
+
+        var btn2 = document.getElementById('getTime');
+        btn2.onclick = function() {
+            document.getElementById('time').innerHTML = getDate();
+        };
+
+        function getDate() {
+            var nowDate = new Date();
+            var yyyy = nowDate.getFullYear();
+            var mm = nowDate.getMonth() + 1;
+            mm = mm < 10 ? '0' + mm : mm;
+            var dd = nowDate.getDate();
+            dd = dd < 10 ? '0' + dd : dd;
+            var day = nowDate.getDay();
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var timeStr = yyyy + '-' + mm + '-' + dd + ' ' + arr[day];
+            return timeStr;
+        }
+    </script>
+</body>
+
+</html>

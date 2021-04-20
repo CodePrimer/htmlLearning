@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 10px auto;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        th {
+            background-color: #999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" id="select_all"></th>
+                <th>商品</th>
+                <th>价格</th>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPhone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id=""></td>
+                <td>iPad Air</td>
+                <td>4000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var checkboxAll = document.getElementById('select_all');
+        var checkboxList = document.getElementById('tb').getElementsByTagName('input');
+        checkboxAll.onclick = function () {
+            if (this.checked == true) {
+                for (var i = 0; i < checkboxList.length; i++) {
+                    checkboxList[i].checked = true;
+                }
+            } else {
+                for (var i = 0; i < checkboxList.length; i++) {
+                    checkboxList[i].checked = false;
+                }
+            }
+        }
+        for (var i = 0; i < checkboxList.length; i++) {
+            checkboxList[i].onclick = function () {
+                var count = 0;
+                for (var j = 0; j < checkboxList.length; j++) {
+                    if (checkboxList[j].checked == true) {
+                        count += 1;
+                    }
+                }
+                if (count == checkboxList.length) {
+                    checkboxAll.checked = true;
+                } else {
+                    checkboxAll.checked = false;
+                }
+                // console.log(count);
+            }
+        }
+    </script>
+</body>
+
+</html>

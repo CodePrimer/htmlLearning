@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .adv {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: pink;
+        }
+
+        .adv img {
+            position: absolute;
+            left: 0;
+            top: 80px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .adv span {
+            display: block;
+            position: absolute;
+            right: 2px;
+            top: 5px;
+            height: 30px;
+
+        }
+
+        .adv button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="adv">
+        <div>
+            <span id="second"></span>
+            <button>关闭</button>
+        </div>
+        <img src="./img/mouse.jpg" alt="">
+    </div>
+
+    <script>
+        var adv = document.querySelector('.adv')
+        var btn = adv.querySelector('button');
+        // console.log(btn);
+        btn.addEventListener('click', closeAdv);
+        function closeAdv() {
+            adv.style.display = 'none';
+        }
+
+        document.addEventListener('load', function(){
+            
+        })
+
+        // 定时5秒自动关闭
+        var timeoutCloseAdv = setTimeout(closeAdv, 5000);
+        
+    </script>
+</body>
+
+</html>

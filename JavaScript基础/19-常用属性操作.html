@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./img/circle1.png" alt="">
+    <button id='btn'>切换颜色</button>
+
+    <script>
+        function getFileName(o) {
+            var pos = o.lastIndexOf('/');
+            return o.substring(pos + 1);
+        }
+
+        var btn = document.getElementById('btn');
+        btn.onclick = function() {
+            var imgTag = document.querySelector('img');
+            var pngName = getFileName(imgTag.src);
+            if (pngName == 'circle1.png') {
+                imgTag.src = './img/circle2.png';
+            } else {
+                imgTag.src = './img/circle1.png';
+            }
+
+        }
+    </script>
+</body>
+
+</html>

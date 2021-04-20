@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .preview_img {
+            position: relative;
+            border: #000000 solid 1px;
+            width: 300px;
+            height: 400px;
+            margin: 50px 0px 0px 150px;
+        }
+
+        .preview_img .preview_focus {
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: #FEDE4F;
+            opacity: .5;
+            cursor: move;
+        }
+
+        .preview_img .preview_big {
+            display: none;
+            position: absolute;
+            top: -1px;
+            left: 301px;
+            width: 300px;
+            height: 300px;
+            border: #000000 solid 1px;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .preview_img>img {
+            width: 100%;
+            height: auto;
+        }
+
+        .preview_img .preview_big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview_img">
+        <img src="./image/ztt.jpg" alt="">
+        <div class="preview_focus"></div>
+        <div class="preview_big">
+            <img src="./image/ztt.jpg" alt="">
+        </div>
+    </div>
+    <script>
+        var divPre = document.querySelector('.preview_img');
+        var divFocus = document.querySelector('.preview_focus');
+        var divBig = document.querySelector('.preview_big');
+        // 1.鼠标经过盒子，显示黄色的遮挡层和大图片盒子，离开时，隐藏盒子
+
+        divPre.addEventListener('mouseover', function (e) {
+            divFocus.style.display = 'block';
+            divBig.style.display = 'block';
+
+        })
+        divPre.addEventListener('mouseout', function () {
+            divFocus.style.display = 'none';
+            divBig.style.display = 'none';
+        })
+
+        divPre.addEventListener('mousemove', function (e) {
+            var x = e.pageX - divPre.offsetLeft;
+            var y = e.pageY - divPre.offsetTop;
+            console.log(x, y);
+
+            var left = x - divFocus.offsetWidth / 2
+            var top = y - divFocus.offsetHeight / 2
+            if (left < 0) {
+                left = 0;
+            } else if (left >= (divPre.offsetWidth - divFocus.offsetWidth)) {
+                left = divPre.offsetWidth - divFocus.offsetWidth
+            }
+            if (top < 0) {
+                top = 0;
+            } else if (top >= (divPre.offsetHeight - divFocus.offsetHeight)) {
+                top = divPre.offsetHeight - divFocus.offsetHeight;
+            }
+
+            divFocus.style.left = left + 'px';
+            divFocus.style.top = top + 'px';
+
+            // 遮挡层最大移动距离
+
+
+            var imgBig = divBig.querySelector('img');
+
+            var xMax = divPre.offsetWidth - divFocus.offsetWidth;
+            var yMax = divPre.offsetHeight - divFocus.offsetHeight;
+
+            var xBigMax = imgBig.offsetWidth - divBig.offsetWidth;
+            var yBigMax = imgBig.offsetHeight - divBig.offsetHeight;
+
+            var bigX = x * xMax / xBigMax
+            var bigY = y * yMax / yBigMax
+            imgBig.style.left = -bigX + 'px';
+            imgBig.style.top = -bigY + 'px';
+        })
+    </script>
+</body>
+
+</html>

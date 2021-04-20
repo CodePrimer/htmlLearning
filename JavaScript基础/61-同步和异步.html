@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <img src="./img/JS事件执行规则.png" alt="">
+    <img src="./img/JS事件执行规则2.png" alt="">
+    <script>
+        // JS原本是单线程执行 HTML5提出Web Worker标准，允许JS 脚本创建多个线程
+
+        // 第一个问题 打印1 2 3
+        console.log(1);
+        setTimeout(function () {
+            console.log(3);
+        }, 1000);
+        console.log(2);
+
+        // 第二个问题 打印1 2 3
+        console.log(1);
+        setTimeout(function () {
+            console.log(3);
+        }, 0);
+        console.log(2);
+
+        // 原因
+        // 同步任务
+        // 同步任务都在主线程上执行，形成一个执行栈
+
+        // 异步任务
+        // （1）普通事件，click resize
+        // （2）资源加载 load error
+        // （3）定时器 setTimeout setInterval
+        // 异步任务依次加入任务队列
+
+        // JS执行规则
+        // 主线程执行栈 、 异步进程处理 、 任务队列
+        // 主线程执行栈自上而下判断代码，若遇到回调函数（异步任务），交由异步进程处理判断是否执行，执行则添加到任务队列中。
+        // 等主线程执行栈中代码执行完毕，再依次执行任务队列中异步任务
+
+
+
+
+
+    </script>
+</body>
+
+</html>
