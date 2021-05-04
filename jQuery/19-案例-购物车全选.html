@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        .cart-main {
+            position: relative;
+            width: 800px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+
+        .cart-table-th {
+            position: relative;
+            width: 800px;
+            height: 50px;
+            background-color: skyblue;
+        }
+
+        .cart-table-th .cart-th-chk {
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            width: 80px;
+        }
+
+        .cart-table-th .cart-th-info {
+            position: absolute;
+            top: 10px;
+            left: 90px;
+            width: 100px;
+        }
+
+        .cart-table-th .cart-th-price {
+            position: absolute;
+            top: 10px;
+            left: 200px;
+            width: 100px;
+        }
+
+        .cart-table-th .cart-th-amount {
+            position: absolute;
+            top: 10px;
+            left: 300px;
+            width: 100px;
+        }
+
+        .cart-table-th .cart-th-sum {
+            position: absolute;
+            top: 10px;
+            left: 400px;
+            width: 100px;
+        }
+
+        .cart-table-th .cart-th-op {
+            position: absolute;
+            top: 10px;
+            left: 500px;
+            width: 100px;
+        }
+
+        .cart-table-tb {
+            width: 800px;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 商品结算区域 -->
+    <div class="cart-main">
+        <!-- 商品表头 -->
+        <div class="cart-table-th">
+            <div class="cart-th-chk">
+                <input type="checkbox"> 全选
+            </div>
+            <div class="cart-th-info">商品信息</div>
+            <div class="cart-th-price">价格</div>
+            <div class="cart-th-amount">数量</div>
+            <div class="cart-th-sum">金额</div>
+            <div class="cart-th-op">操作</div>
+        </div>
+
+        <div class="cart-table-tb">
+            <div class="cart-table-tb-tr">
+                <div>
+                    <input type="checkbox" class="j-checkbox">
+                </div>
+                <div>电风扇</div>
+                <div>135</div>
+                
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" class="checkall">全选</th>
+                <th>名称</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" class="j-checkbox"></td>
+                <td>电风扇</td>
+                <td>135</td>
+                <td>
+                    <a href="javascript:;" class="decrement">-</a>
+                    <input type="text" class="itxt" value="1">
+                    <a href="javascript:;" class="increment">+</a>
+                </td>
+                <td><a href="javascript:;" class="delete">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="j-checkbox"></td>
+                <td>电脑</td>
+                <td>5000</td>
+                <td>
+                    <a href="javascript:;" class="decrement">-</a>
+                    <input type="text" class="itxt" value="1">
+                    <a href="javascript:;" class="increment">+</a>
+                </td>
+                <td><a href="javascript:;" class="delete">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="j-checkbox"></td>
+                <td>空调</td>
+                <td>3000</td>
+                <td>
+                    <a href="javascript:;" class="decrement">-</a>
+                    <input type="text" class="itxt" value="1">
+                    <a href="javascript:;" class="increment">+</a>
+                </td>
+                <td><a href="javascript:;" class="delete">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" class="j-checkbox"></td>
+                <td>冰箱</td>
+                <td>2000</td>
+                <td>
+                    <a href="javascript:;" class="decrement">-</a>
+                    <input type="text" class="itxt" value="1">
+                    <a href="javascript:;" class="increment">+</a>
+                </td>
+                <td><a href="javascript:;" class="delete">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        $(function () {
+            // 全选按钮
+            $(".checkall").change(function () {
+                $(".j-checkbox, .checkall").prop("checked", $(this).prop("checked"))
+            });
+
+            // 单选按钮
+            // :checked 查看是否被选上
+            $(".j-checkbox").change(function () {
+                var checkedNum = $(".j-checkbox:checked").length
+                var checkedTotal = $(".j-checkbox").length
+                if (checkedNum == checkedTotal) {
+                    $(".checkall").prop("checked", true);
+                } else {
+                    $(".checkall").prop("checked", false);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

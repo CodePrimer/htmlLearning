@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .current {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test1"></div>
+    <br>
+    <div class="test2"></div>
+    <br>
+    <div class="test3">test3</div>
+
+    <ul>
+        <li>alert1</li>
+        <li>alert1</li>
+        <li>alert1</li>
+        <li>alert1</li>
+        <li>alert1</li>
+    </ul>
+
+    <ol>
+
+    </ol>
+
+    <script>
+        // 1.单个事件注册
+        $(".test1").click(function () {
+            $(this).css({
+                "backgroundColor": "purple"
+            })
+        })
+        $(".test1").mouseenter(function () {
+            $(this).css({
+                "backgroundColor": "skyblue"
+            })
+        })
+
+        // 2.事件处理 on() 绑定事件
+        // element.on(events, [selector], fn)
+        // （1）events 一个或多个事件 空格分隔
+        // （2）selector 元素的子元素选择器
+        // （3）fn 回调函数
+
+        $(".test2").on({
+            // 使用json对象绑定多个事件
+            mouseenter: function () {
+                $(this).css({
+                    "backgroundColor": "skyblue"
+                })
+            },
+            click: function () {
+                $(this).css({
+                    "backgroundColor": "purple"
+                })
+            },
+            mouseleave: function () {
+                $(this).css({
+                    "backgroundColor": "pink"
+                })
+            }
+        })
+
+        // 3.实现hover功能
+        $(".test3").on("mouseenter mouseleave", function () {
+            console.log(11);
+            $(this).toggleClass("current");
+        })
+
+        // 4.on()方法 事件委派 
+        // 把原来加给子元素身上的事件绑定在父元素身上，就是把时间委派给父元素
+        $("ul").on("click", "li", function () {
+            alert(1);
+        })
+
+        // 5.on()方法 可以给动态创建的元素绑定事件
+        // $("ol li").click(function () {
+        //     alert(11)       // 在绑定事件时还没有ol li元素 绑定失败
+        // })
+
+       $("ol").on("click", "li", function () {
+            alert(11)       // 在绑定事件时还没有ol li元素 绑定失败
+        })
+        var li = $("<li>我是后来创建的li</li>");
+        $("ol").append(li);
+
+    </script>
+</body>
+
+</html>

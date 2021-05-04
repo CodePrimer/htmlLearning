@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            left: 0px;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 50px;
+            background-color: purple;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+    <span></span>
+    <button class="btn300">到300</button>
+    <button class="btn500">到500</button>
+    <script>
+        // 动画的核心原理：通过定时器setInterval()不断移动盒子的位置
+        // 实现步骤： 1.获取盒子当前位置 2.当前位置加一个移动距离 3.加上定时器函数 4.结束定时器 5.此元素要加上定位
+
+        // 动画函数的封装
+        // obj 动画函数对象
+        // movePixel 向右移动距离
+        // moveSpeed 每次移动间隔秒数
+        function animate(obj, target) {
+            // 这里为了节省内存空间，且区分不同obj的timer定时器
+            // 将timer作为obj的一个属性进行添加
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    // 停止动画
+                    clearInterval(obj.timer);
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 15);
+        }
+
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        animate(div, 300);
+
+        // 缓动效果原理
+        // 每次运动的步长：（目标位置-现在位置）/ 10
+        function animate1(obj, target) {
+            // 这里为了节省内存空间，且区分不同obj的timer定时器
+            // 将timer作为obj的一个属性进行添加
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    // 停止动画
+                    clearInterval(obj.timer);
+                }
+                // 步长为小数会导致未达到目标位置 需要向上取整
+                var step = Math.ceil((target - obj.offsetLeft) / 10);
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15);
+        }
+
+        var btn300 = document.querySelector('.btn300');
+        var btn500 = document.querySelector('.btn500');
+        btn300.addEventListener('click', function () {
+            animate1(span, 300);
+        })
+        btn500.addEventListener('click', function () {
+            animate1(span, 500);
+        })
+    </script>
+</body>
+
+</html>

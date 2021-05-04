@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">测试按钮</button>
+    <br />
+    <input type="text" name="msg1"><br />
+    <input type="text" name="msg2"><br />
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <!-- 
+        1.作为函数调用 $(param)
+            1) 参数为函数时：当DOM加载完成后执行此回调函数
+            2) 参数为选择器字符串：查找所有匹配的标签，并将它们封装为jQuery对象
+            3) 参数为DOM对象：将DOM对象封装为jQuery对象
+            4) 参数为HTML标签字符串：创建标签对象并封装成jQuery对象
+
+        2.作为对象调用 $.xxx()
+            1) $.each() 隐式遍历数组
+            2) $.trim() 去除两端空格
+
+     -->
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <script>
+        // 参数为函数时：当DOM加载完成后执行此回调函数
+        $(function () {
+
+            // 参数为选择器字符串：查找所有匹配的标签，并将它们封装为jQuery对象
+            var btn1 = $('#btn');
+            console.log(btn1.html());
+
+            // 参数为HTML标签字符串：创建标签对象并封装成jQuery对象
+            var btn2 = $('<button id="btn">被添加按钮</button>');
+            console.log(btn2.html());
+
+            var box1Element = document.querySelector('.box1')
+            var box1 = $(box1Element);
+            console.log(box1);
+
+            $('#btn').click(function () {
+                // html()返回html文本
+                alert($(this).html())
+            })
+
+            // var a = $('<p>this is p1</p>');
+            // console.log(a);
+            // var b = $('<p>this is p2</p>').appendTo('div');
+            // console.log(b);
+            // var c = $('<p>this is p3</p>').appendTo('div').end();
+            // console.log(c);
+
+            // $.each() 隐式遍历数组
+            var arr = ['one', 'two', 'three', 'four']
+            $.each(arr, function (index, item) {
+                console.log("当前索引号是" + index);
+                console.log("当前数组值是" + item);
+            });
+            
+            // $.trim() 去除两端空格
+            var str1 = '  im a string   ';
+            console.log($.trim(str1));
+        })
+    </script>
+</body>
+
+</html>

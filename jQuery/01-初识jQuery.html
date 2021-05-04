@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- 原生DOM -->
+    <script type="text/javascript">
+
+        window.onload = function () {
+            var btn1 = document.getElementById('btn1');
+            btn1.onclick = function () {
+                var username = document.getElementById('username').value;
+                alert(username);
+            }
+        }
+    </script>
+
+    <!-- jQuery实现 -->
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script> -->
+    <script type="text/javascript">
+        // 绑定文档加载完成的监听
+        $(function(){
+            var $btn2 = $('#btn2');     // jQuery对象
+            $btn2.click(function(){
+                var $username = $('#username')
+                var username = $username.val();
+                alert(username);
+            })
+        })
+    </script>
+
+    <!-- jQuery对象 -->
+    <script>
+        // 查看jQuery
+        console.log($);
+        // 查看jQuery类型
+        console.log(typeof($));
+        // 查看jQuery对象
+        console.log($());
+        console.log($() instanceof Object);     // true
+    </script>
+</head>
+
+<body>
+    <div>
+        用户名：<input type="text" id="username">
+    </div>
+    <button id="btn1">确定（JS）</button>
+    <button id="btn2">确定（jQuery）</button>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./animate.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul,
+        li {
+            list-style: none
+        }
+
+        .focus {
+            position: relative;
+            width: 590px;
+            height: 470px;
+            background-color: pink;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+
+        .focus ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 为了使图片在一行，修改ul宽度 */
+            width: 600%;
+        }
+
+        .focus ul li {
+            float: left;
+        }
+
+        .arrow-1 {
+            position: absolute;
+            left: 0;
+            top: 230px;
+            background-color: #fff;
+            border-radius: 15px;
+            display: none;
+            z-index: 2;
+        }
+
+        .arrow-2 {
+            position: absolute;
+            right: 0;
+            top: 230px;
+            background-color: #fff;
+            border-radius: 15px;
+            display: none;
+            z-index: 2;
+        }
+
+        .circle {
+            position: absolute;
+            bottom: 20px;
+            left: 50px;
+            width: 100px;
+            height: 20px;
+            /* background-color: #fff; */
+            /* opacity: .5; */
+        }
+
+        .circle li {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            margin: 5px 0 5px 15px;
+            border-radius: 15px;
+        }
+
+        .circle .current {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 轮播图盒子 -->
+    <div class="focus">
+        <!-- 左侧按钮 -->
+        <a href="javascript:;" class="arrow-1">&lt</a>
+        <!-- 右侧按钮 -->
+        <a href="javascript:;" class="arrow-2">&gt</a>
+        <!-- 核心滚动区域 -->
+        <ul>
+            <li>
+                <a href="#"><img src="./image/lunbo1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./image/lunbo2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="#"><img src="./image/lunbo3.jpg" alt=""></a>
+            </li>
+        </ul>
+        <!-- 小圆圈 -->
+        <div class="circle">
+            <ol>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // 功能需求：
+        // 1.鼠标经过轮播图模块，左右按钮显示，离开隐藏
+        var focusDiv = document.querySelector('.focus');
+        var arrow_1 = document.querySelector('.arrow-1');
+        var arrow_2 = document.querySelector('.arrow-2');
+        focusDiv.addEventListener('mouseenter', function () {
+            arrow_1.style.display = 'block';
+            arrow_2.style.display = 'block';
+        })
+        focusDiv.addEventListener('mouseleave', function () {
+            arrow_1.style.display = 'none';
+            arrow_2.style.display = 'none';
+        })
+
+        // 动态生成小圆圈
+        // 小圆圈的个数要跟图片张数一致
+        var ul = focusDiv.querySelector('ul');
+        var ol = focusDiv.querySelector('ol');
+        // console.log(ul.children.length);
+
+        var focusWidth = focusDiv.offsetWidth;
+
+        var num = 0; // 左右箭头变量
+        var circleIndex = 0; // 小圆点的index
+        for (var i = 0; i < ul.children.length; i++) {
+            // 创建li
+            var li = document.createElement('li');
+            // 记录当前li索引号
+            li.setAttribute('index', i);
+            // 添加li
+            ol.appendChild(li);
+            // 点击当前小圆圈，就添加current类
+            // 生成小圆圈的同时 添加点击事件
+            li.addEventListener('click', function () {
+                for (var i = 0; i < ol.children.length; i++) {
+                    ol.children[i].className = '';
+                }
+                this.className = 'current';
+
+                // 4.点击小圆圈，播放相应的图片
+
+                var liIndex = this.getAttribute('index');
+
+                // 当我们点击了某个li后 要把这个li的索引号给num
+                num = liIndex;
+                circleIndex = liIndex;
+                animate(ul, -liIndex * focusWidth);
+            })
+        }
+        // ol中第一个li类名设置为current
+        ol.children[0].className = 'current';
+
+        // 2.点击右侧按钮，图片往右播放一张
+
+        // 克隆第一张图片 放到ul最后 这个步骤在生成小圆圈后面，不会影响小圆圈个数
+        var first = ul.children[0].cloneNode(true);
+        ul.appendChild(first);
+
+        // 节流阀
+        var flag = true;
+        arrow_2.addEventListener('click', function () {
+
+            if (flag) {
+                flag = false;
+
+                console.log('num:' + num);
+                // 无缝滚动 复制第一张图片到li的最后 等最后滚动时重置ul的left
+                if (num == ul.children.length - 1) {
+                    num = 0;
+                    ul.style.left = 0;
+                }
+                num++;
+                console.log('focusWidth:' + focusWidth);
+                animate(ul, -num * focusWidth, function () {
+                    flag = true;
+                });
+                // 3.图片切换同时，下面的小圆圈跟随一起变化
+                circleIndex++;
+                // 如果小圆圈走到克隆的图片，重置circleIndex;
+                if (circleIndex == ol.children.length) {
+                    circleIndex = 0;
+                }
+                // 排他思想
+                for (var i = 0; i < ol.children.length; i++) {
+                    ol.children[i].className = '';
+                }
+                ol.children[circleIndex].className = 'current';
+            }
+        })
+
+        arrow_1.addEventListener('click', function () {
+            console.log('num:' + num);
+            // 无缝滚动 复制第一张图片到li的最后 等最后滚动时重置ul的left
+            if (num == 0) {
+                num = ul.children.length - 1;
+                ul.style.left = -(ul.children.length - 1) * focusWidth + 'px';
+            }
+            num--;
+            animate(ul, -num * focusWidth);
+            // 3.图片切换同时，下面的小圆圈跟随一起变化
+            circleIndex--;
+            // 如果小圆圈走到克隆的图片，重置circleIndex;
+            if (circleIndex < 0) {
+                circleIndex = ol.children.length - 1;
+            }
+            // 排他思想
+            for (var i = 0; i < ol.children.length; i++) {
+                ol.children[i].className = '';
+            }
+            ol.children[circleIndex].className = 'current';
+        })
+
+        // 5.鼠标不在轮播图范围内时，自动播放图片
+        var timer1 = setInterval(function () {
+            arrow_2.click();
+        }, 3000)
+    </script>
+</body>
+
+</html>

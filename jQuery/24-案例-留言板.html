@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        .textArea {
+            width: 400px;
+            height: 160px;
+            /* background-color: pink; */
+        }
+
+        .textArea textarea {
+            margin: 2px 0 2px 0px;
+            outline: none;
+            resize: none;
+            width: 400px;
+            height: 120px;
+            border: 1px solid skyblue;
+        }
+
+        .textArea button {
+            margin-left: 172px;
+        }
+
+        .textList {
+            overflow-y: auto;
+            width: 400px;
+            height: 600px;
+            border: 1px solid rgb(167, 243, 179);
+        }
+
+        .textList h3 {
+            font-weight: 700;
+            text-align: center;
+        }
+
+
+        .box {
+            position: relative;
+            width: 380px;
+            height: 100px;
+            font-size: 14px;
+            border-bottom: 1px solid black;
+            /* background-color: pink; */
+        }
+
+        .box .username {
+            height: 25px;
+            padding: 0 0 0 5px;
+            font-weight: 600;
+            color: skyblue;
+            text-align: left;
+            line-height: 25px;
+            /* background-color: rgb(81, 125, 182); */
+        }
+
+        .box .content {
+            overflow: auto;
+            padding: 0 0 0 5px;
+            color: #222;
+            height: 50px;
+            text-align: left;
+            /* background-color: rgb(203, 224, 168); */
+        }
+
+        .box .createtime {
+            padding: 0 0 0 5px;
+            font-size: 12px;
+            color: #555;
+            height: 25px;
+            text-align: left;
+            line-height: 25px;
+            /* background-color: rgb(203, 224, 168); */
+
+        }
+
+        .box .buttonDelete {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="textArea">
+        <textarea id="liuyanban"></textarea>
+        <button>提交留言</button>
+    </div>
+    <div class="textList">
+        <h3>留言区</h3>
+        <ul>
+            <li>
+                <div class="box">
+                    <p class="username">dabuliu.</p>
+                    <p class="content">今天好开心..</p>
+                    <p class="createtime">2021-04-07 17:17</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        $(function () {
+            var username = "dabuliu."
+            $(".textArea button").on("click", function () {
+                // 留言内容
+                var liuyan = $("#liuyanban").val();
+                
+                // 创建元素
+                var htmlStr = "";
+                htmlStr += '<li><div class="box"></div></li>'
+            })
+        })
+    </script>
+</body>
+
+</html>

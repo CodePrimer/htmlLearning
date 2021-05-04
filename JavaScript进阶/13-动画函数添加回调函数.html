@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            position: absolute;
+            left: 0px;
+            top: 200px;
+            display: block;
+            width: 150px;
+            height: 50px;
+            background-color: purple;
+
+        }
+    </style>
+</head>
+
+<body>
+    <span></span>
+    <script>
+        // 回调函数原理：函数可以作为一个参数，将这个函数作为参数传到另一个函数里，当那个函数执行完毕后，在执行传进去的这个函数
+
+        // 回调函数写在定时器结束的位置
+
+        function animate1(obj, target, callback) {
+            // 添加回调函数参数 callback
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    clearInterval(obj.timer);
+                    // 回调函数写到定时器结束里边
+                    if (callback) {
+                        callback();
+                    }
+                }
+                var step = Math.ceil((target - obj.offsetLeft) / 10);
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15);
+        }
+
+        // 实现盒子到达终点后变色效果
+        var span = document.querySelector('span');
+        animate1(span, 800, function () {
+            span.style.backgroundColor = 'pink';
+        })
+    </script>
+</body>
+
+</html>

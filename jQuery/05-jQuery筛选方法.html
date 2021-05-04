@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+</head>
+<body>
+    <div class="father">
+        <p id="p1">我是fater的p</p>
+        <div class="son">
+            <p>我是son的p</p>
+        </div>
+    </div>
+    <ul>
+        <li>我是ul的小li</li>
+        <li>我是ul的小li</li>
+        <li class="current">我是ul的小li</li>
+        <li>我是ul的小li</li>
+        <li>我是ul的小li</li>
+    </ul>
+    <ol>
+        <li>我是ol的小li</li>
+        <li>我是ol的小li</li>
+        <li>我是ol的小li</li>
+        <li>我是ol的小li</li>
+        <li>我是ol的小li</li>
+    </ol>
+    <script>
+        // 筛选方法
+        // parent() 查找父元素
+        $('li').parent();
+        // children(selector)  最近一级的子元素
+        $('.father').children('p');
+        // find(selector) 相当于后代选择器
+        $('.father').find('p');
+        // siblings(selector) 查找兄弟节点 不包括自己
+        $('.current').siblings('li');
+        // nextAll 当前元素之后的所有同辈元素
+        $('.current').nextAll();
+        // prevtAll 当前元素之前的所有同辈元素
+        $('.current').prevtAll();
+        // hasClass(class) 检查当前元素是否包含类 返回布尔值
+        $('li').hasClass('current');
+        // eq(index) 选取索引对应元素
+        $('li').eq(2)
+    </script>
+</body>
+</html>

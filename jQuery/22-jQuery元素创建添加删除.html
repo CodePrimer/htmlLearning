@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>原先的li</li>
+    </ul>
+    <div class="test">原先的div</div>
+
+    <span>删除元素</span>
+    <script>
+        $(function () {
+            // 创建元素
+            var li = $("<li>后添加的li</li>")
+
+            // 添加元素 - 内部添加
+            $("ul").append(li);     // 后部添加
+            // $("ul").prepend(li);    // 前部添加
+
+            // 添加元素 - 外部添加
+            var div = $("<div>后添加的div</div>");
+            $(".test").after(div);
+            // $(".test").before(div);
+
+            // 删除元素
+            $("span").remove();     // 整个dom删除
+            $("span").empty();      // dom不删除,innerHTML清空
+            $("span").html("");     // innerHTML清空
+        })
+    </script>
+</body>
+
+</html>

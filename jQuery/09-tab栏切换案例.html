@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab栏切换</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            list-style: none;
+
+        }
+
+        .tab {
+            width: 800px;
+            height: 500px;
+            /* background-color: pink; */
+            margin: 50px auto;
+        }
+
+        .tab_list {
+            height: 30px;
+            background-color: #ccc;
+            border-bottom: 1px solid red;
+        }
+
+        .tab_list ul li {
+            float: left;
+            width: 80px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            margin: 0 5px 0 5px;
+
+            font: 14px 'Microsoft YaHei';
+            line-height: 30px;
+            color: white;
+            /* 鼠标变成小手 */
+            cursor: pointer;
+        }
+
+        .tab_con {
+            font: 14px 'Microsoft YaHei';
+            margin: 20px 0 0 20px;
+        }
+
+        .tab_con div {
+            display: none;
+        }
+
+        .tab_selected {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <!-- 默认选中第一个 -->
+                <li class="tab_selected">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div style="display:block;">商品介绍吧啦吧啦吧啦吧啦吧啦吧啦</div>
+            <div>规格与包装吧啦吧啦吧啦吧啦吧啦吧啦</div>
+            <div>售后保障吧啦吧啦吧啦吧啦吧啦吧啦</div>
+            <div>商品评价吧啦吧啦吧啦吧啦吧啦吧啦</div>
+            <div>手机社区吧啦吧啦吧啦吧啦吧啦吧啦</div>
+        </div>
+    </div>
+
+    <script>
+        // 原生JS
+        // var lis = document.querySelector('.tab_list').getElementsByTagName('li');
+        // var divs = document.querySelector('.tab_con').getElementsByTagName('div');
+        // for (var i = 0; i < lis.length; i++) {
+        //     // 先设置自定义属性index
+        //     lis[i].setAttribute('index', i);
+
+        //     lis[i].onclick = function () {
+        //         // 排他思想，先删除所有的
+        //         for (i = 0; i < lis.length; i++) {
+        //             lis[i].className = '';
+        //             divs[i].style.display = 'none';
+        //         }
+        //         // 再设置当前的
+        //         this.className = 'tab_selected';
+
+        //         // 显示内容模块
+        //         var index = this.getAttribute('index');
+        //         divs[index].style.display = 'block';
+        //     }
+        // }
+
+        // jQuery
+        $(function () {
+            $('.tab_list li').click(function () {
+                $(this).addClass('tab_selected').siblings().removeClass('tab_selected');
+                // 获取当前点击索引
+                var index = $(this).index();
+                // console.log(index);
+
+                // 当前索引对应盒子显示show() 其他兄弟盒子隐藏 hide()
+                $(".tab_con div").eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+
+</body>
+
+</html>

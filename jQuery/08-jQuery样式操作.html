@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+
+        .float_right {
+            float: right;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button id="add">添加右浮动</button>
+    <button id="rmv">删除右浮动</button>
+    <button id="chg">切换</button>
+    <div></div>
+    
+    <script>
+        $(function () {
+            // 1.没有传递第二个参数 则进行样式查询
+            console.log($("div").css("width"));
+            // 2.传递第二个参数 进行样式修改
+            $("div").css("height", '300px');
+            // 或者只写写数值
+            $("div").css("height", 300);
+
+            // 3.传递对象变量 修改多种变量
+            $("div").css({
+                width: 100,
+                height: 200,
+                backgroundColor: "red"
+            });
+
+            // 4.设置类样式方法
+            $("#add").click(function () {
+                // 添加类
+                $("div").addClass("float_right");
+            });
+            
+            $("#rmv").click(function () {
+                // 删除类
+                $("div").removeClass("float_right");
+            });
+
+            $("#chg").click(function () {
+                // 切换类
+                $("div").toggleClass("float_right");
+            });
+        })
+    </script>
+
+</body>
+
+</html>

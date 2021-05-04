@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        // jQuery元素遍历  $("div").each
+        // $("div").each(function(index, domEle){});
+        // index是每个元素的索引，domEle是dom元素对象 需要用$(domEle)进行转换
+        $("div").each(function (index, domEle) {
+            var colorInfo = {
+                0: "red",
+                1: "green",
+                2: "blue"
+            }
+            console.log(colorInfo[index]);
+            $(domEle).css({
+                "color": colorInfo[index]
+            });
+        });
+
+        // 迭代器遍历方法 $.each()
+        var arr = [1,2,3,4,5,6];
+        $.each(arr , function(i, n){
+            console.log(n);
+        })
+        
+    </script>
+</body>
+
+</html>
