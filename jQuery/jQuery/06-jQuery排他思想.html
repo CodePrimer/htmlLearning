@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        button {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <button>确定</button>
+    <button>确定</button>
+    <button>确定</button>
+    <button>确定</button>
+    <button>确定</button>
+    <button>确定</button>
+    <script>
+        $(function () {
+            // 隐式迭代
+            $('button').click(function () {
+                // 排他思想
+                $(this).siblings().css('background', '#fff')
+                // 修改当前元素样式
+                $(this).css('background', 'pink');
+                
+            })
+        })
+    </script>
+</body>
+
+</html>

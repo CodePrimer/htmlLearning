@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <script>
+        // $.extend([deep], target, object1, [objectN])
+        $(function () {
+            // 1. 将某个对象复制给空对象
+            // var targetObj = {};
+            // var obj = {
+            //     id: 1,
+            //     name: "andy"
+            // }
+
+            // $.extend(targetObj, obj);
+            // console.log(targetObj);
+
+
+            // 2. 将某个对象复制给有值对象 添加属性
+            // var targetObj = {
+            //     age: 18
+            // };
+            // var obj = {
+            //     id: 1,
+            //     name: "andy"
+            // }
+
+            // $.extend(targetObj, obj);
+            // console.log(targetObj);
+
+            // 3. 将某个对象复制给有值对象且属性重复 覆盖老数据
+            // var targetObj = {
+            //     id: 0,
+            //     name: "lucy"
+            // };
+            // var obj = {
+            //     id: 1,
+            //     name: "andy"
+            // }
+
+            // $.extend(targetObj, obj);
+            // console.log(targetObj);
+
+            // 4.浅拷贝 复制地址， 修改值会有连带影响
+            // var targetObj = {};
+            // var obj = {
+            //     id: 1,
+            //     name: "andy",
+            //     msg: {
+            //         age: 18
+            //     }
+            // }
+            // console.log(obj);
+            // $.extend(targetObj, obj);
+            // // 修改targetObj
+            // targetObj.msg.age = 20;
+            // console.log(obj);
+
+            // 5.浅拷贝 复杂数据类型会被覆盖
+            // var targetObj = {
+            //     msg: {
+            //         sex: "male"
+            //     }
+            // };
+            // var obj = {
+            //     id: 1,
+            //     name: "andy",
+            //     msg: {
+            //         age: 18
+            //     }
+            // }
+            // $.extend(targetObj, obj);
+            // console.log(targetObj);
+
+
+            // 6.深拷贝 完全复制 如果里边有不冲突的属性，会合并到一起
+            var targetObj = {
+                msg: {
+                    sex: "male"
+                }
+            };
+            var obj = {
+                id: 1,
+                name: "andy",
+                msg: {
+                    age: 18
+                }
+            }
+            $.extend(true, targetObj, obj);
+            console.log(targetObj);
+            // 修改targetObj 不会影响obj
+            targetObj.msg.age = 100;
+            console.log(obj);
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        // jQuery的简单封装
+        function $(ele) {
+            return document.querySelector(ele);
+        }
+
+        console.log($("div"));
+        // $.each();       // 多库共存报错
+
+        var customJquery = jQuery.noConflict();
+
+        console.log(customJquery("span"));
+    </script>
+</body>
+
+</html>

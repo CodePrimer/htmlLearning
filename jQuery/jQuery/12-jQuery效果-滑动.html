@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>上划</button>
+    <button>下划</button>
+    <button>切换</button>
+    <div></div>
+    <script>
+
+        // 1. slideDown()
+
+        // 2. slideUp()
+
+        // 3. slideToggle()
+
+        $(function(){
+            $("button").eq(1).click(function(){
+                $("div").slideDown("slow");
+            });
+            $("button").eq(0).click(function(){
+                $("div").slideUp("slow");
+            }); 
+            $("button").eq(2).click(function(){
+                $("div").slideToggle("slow");
+            }); 
+        });
+    </script>
+</body>
+</html>

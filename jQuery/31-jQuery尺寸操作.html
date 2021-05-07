@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            padding: 10px;
+            border: 15px solid red;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // width() 200 不包含padding border margin
+        console.log($("div").width());
+        // innerWidth() 220 包含padding
+        console.log($("div").innerWidth());
+        // outerWidth() 250 包含padding border
+        console.log($("div").outerWidth());
+        // outerWidth(true) 290 包含padding border margin
+        console.log($("div").outerWidth(true));
+    </script>
+</body>
+
+</html>

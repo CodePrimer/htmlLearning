@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        .container {
+            margin: 500px auto;
+            width: 800px;
+            height: 10000px;
+            background-color: skyblue;
+        }
+
+        .back {
+            display: none;
+            position: fixed;
+            right: 0;
+            top: 500px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="back">返回顶部</div>
+    <div class="container"></div>
+    <script>
+        $(function () {
+            var boxTop = $(".container").offset().top;
+            // 页面滚动事件
+            $(window).scroll(function () {
+                console.log($(document).scrollTop());
+                if ($(document).scrollTop() > boxTop) {
+                    $(".back").show();
+                } else {
+                    $(".back").hide();
+                }
+            });
+            // 返回顶部
+            $(".back").on("click", function () {
+                // $(document).scrollTop(0);
+                // 动画返回顶部
+                $("body, html").stop().animate({
+                    scrollTop: 0
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

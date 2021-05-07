@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/jquery-3.6.0.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .father {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            margin: 100px 0 0 100px;
+        }
+
+        .son {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // 1.offset()设置或获取元素偏移，相对于文档的偏移坐标，跟父级没有关系
+        console.log($(".son").offset());
+
+        // 2.position()获取带有定位父级位置（偏移）
+        console.log($(".son").position());
+    </script>
+</body>
+
+</html>
